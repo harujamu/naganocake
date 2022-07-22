@@ -1,4 +1,7 @@
-const { environment } = require('@rails/webpacker')
+const { environment } = require('@rails/webpacker') 
+module.exports = environment
+
+// 以下追加（Bootstrap導入）
 const webpack = require('webpack')
 environment.plugins.prepend(
   'Provide',
@@ -8,5 +11,3 @@ environment.plugins.prepend(
     Popper: 'popper.js'
   })
 )
- 
-module.exports = environment
