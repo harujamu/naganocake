@@ -1,0 +1,31 @@
+<p></p>
+<%= render "admin/shared/links" %>
+
+<div class ="container">
+  <div class ="row">
+    <h2 class ="bg-light">ジャンル一覧・追加</h2>
+    
+    <div class ="">
+      <%= form_with model: @genre_new do |f| %>
+        <%= f.text_field :genre, autocomplete: "name" %>
+        <%= f.submit '新規登録', class:"btn btn-success btn-lg" %>
+      <% end %>
+    </div>
+    
+    <table class ="table table-striped">
+      <tread>
+        <tr>
+          <th>ジャンル</th>
+        </tr>
+      </tread>
+      <tbody>
+        <%= @genres each do |genre| %>
+        <tr>
+          <td><%= genre.name %></td>
+          <td><%= link_to '編集する',admin_edit_genres_path %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
