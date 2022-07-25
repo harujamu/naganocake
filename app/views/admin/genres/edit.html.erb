@@ -1,0 +1,15 @@
+<p></p>
+<%= render "admin/shared/links" %>
+
+<div class ="container">
+  <div class ="row">
+    <h2 class ="bg-light">ジャンル編集</h2>
+    
+    <div class ="">
+      <%= form_with model: @genre do |f| %>
+        <%= f.text_field :genre, autocomplete: "name" %>
+        <%= f.submit '変更を保存', class:"btn btn-success btn-lg" %>
+      <% end %>
+    </div>
+  </div>
+</div>

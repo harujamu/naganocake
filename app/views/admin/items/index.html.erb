@@ -1,0 +1,37 @@
+<p></p>
+<%= render "admin/shared/links" %>
+
+
+<div class ="container">
+  <div class ="row">
+    <div class ="">
+      <h3 class="bg-light">商品一覧</h3>
+      <i class="fal fa-plus-circle small-shadow"></i>
+    </div>
+    
+    <table class ="table table-striped">
+      <thread>
+        <tr>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+        </tr>
+      </thread>
+      <tbody>
+        <tr>
+          <% @items.each do |item| %>
+          <th><%= item.id %></th>
+          <th><%= item.name %></th>
+          <th><%= item.price %></th>
+          <th><%= item.genre %></th>
+          <th><%= item.is_active %></th>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
