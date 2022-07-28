@@ -2,42 +2,51 @@
 <%= render "admin/shared/links" %>
 
 <div class ="container">
-  <div class ="col-md-3">
+  <div class ="col-md-3 mb-5">
     <h3 class ="bg-light">商品詳細</h3>
   </div>
   
   <div class ="row">
-    <div class ="">
-      <%= @item.image %>
+    <div class ="col-md-4">
+      <%= image_tag @item.get_image(300,300) %>
     </div>
-    <div class ="">
+    <div class ="col-md-5">
       <table class ="table table-borderless">
         <tbody>
+        
           <tr>
             <td>商品名</td>
-            <td></td>
+            <td><%= @item.name %></td>
           </tr>
           <tr>
             <td>商品説明</td>
-            <td></td>
+            
+            <td><%= @item.introduction %></td>
           </tr>
           <tr>
             <td>ジャンル</td>
-            <td></td>
+            <td><%= @item.genre.id %></td>
           </tr>
           <tr>
             <td>税込価格<br />（税抜価格）</td>
-            <td rowspan="2"></td>
+            <td><%= @add_tax_price %>(<%= @item.price %>)円</td>
           </tr>
           <tr>
             <td>販売ステータス</td>
-            <td></td>
+            <td>
+              <% if @item.is_active == true %>
+              <span class ="text-success font-weight-bold">販売中</span>
+              <% else %>
+              <span class ="text-secondary font-weight-bold">販売停止中</span>
+              <% end %>
+            </td>
           </tr>
           <tr>
-            <td colspan ="2", class="text-right"><%= link_to '編集する', admin_edit_items_path, class:"btn btn-success btn-lg" %></td>
+            <td></td>
+            <td class="text-left"><%= link_to '編集する', admin_edit_items_path, class:"btn btn-success btn-lg" %></td>
           </tr>
         </tbody>
       </table>
-    </div>
+    </div> 
   </div>
 </div>
