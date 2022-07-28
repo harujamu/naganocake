@@ -1,31 +1,36 @@
 <p></p>
 <%= render "admin/shared/links" %>
 
-<div class ="container col-md-6">
+<div class ="container">
+  <div class ="col-md-4">
+      <h3 class ="bg-light">ジャンル一覧・追加</h3>
+  </div>
+
   <div class ="row">
-    <h3 class ="bg-light">ジャンル一覧・追加</h3>
-    
-    <div class ="col-md-6">
+      <div class ="col-md-6">
       <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
-        <%= f.text_field:name, autocomplete: "name" %>
-        <%= f.submit '新規登録', class:"btn btn-success btn-lg" %>
+        <%= f.label :ジャンル名, class:"mr-5 mt-5 mb-5" %>
+        <%= f.text_field:name, autocomplete: "name", class:"mr-5 ml-5" %>
+        <%= f.submit '新規登録', class:"btn btn-success btn-lg ml-2" %>
       <% end %>
-    </div>
-    
-    <table class ="table table-striped">
-      <tread>
+      </div>
+  </div>
+  <div class="col-md-4">
+    <table class ="table">
+      <thead class="thead-light">
         <tr>
-          <th>ジャンル</th>
+          <th colspan="2">ジャンル</th>
         </tr>
-      </tread>
+      </thead>
       <tbody>
-        <% @genres. each do |genre| %>
+        <% @genres.each do |genre| %>
         <tr>
           <td><%= genre.name %></td>
-          <td><%= link_to '編集する',admin_edit_genres_path, class:"btn btn-success" %></td>
+          <td><%= link_to '編集する',admin_edit_genres_path(genre.id), class:"btn btn-success" %></td>
         </tr>
         <% end %>
       </tbody>
     </table>
+   
   </div>
 </div>

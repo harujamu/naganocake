@@ -68,16 +68,16 @@ Rails.application.routes.draw do
   
   # 管理者用画面（Customersコントローラ）
   get "/admin/customers" => "admin/customers#index"
-  get "/admin/customers/:id" => "admin/customers#show", as: "admin_customers_show"
-  get "/admin/customers/:id/edit" => "admin/customers#edit", as: "admin_customers_edit"
-  patch "/admin/customers/:id" => "admin/customers#update", as: "admin_customers_update"
+  get "/admin/customers/:id" => "admin/customers#show", as: "admin_show_customers"
+  get "/admin/customers/:id/edit" => "admin/customers#edit", as: "admin_edit_customers"
+  patch "/admin/customers/:id" => "admin/customers#update", as: "admin_update_customers"
   
   # 管理者用画面（Ordersコントローラ）
-  get "/admin/orders/:id" => "admin/orders#show", as: "admin_orders_show"
-  patch "/admin/orders/:id" => "admin/orders#update", as: "admin_orders_update"
+  get "/admin/orders/:id" => "admin/orders#show", as: "admin_show_orders"
+  patch "/admin/orders/:id" => "admin/orders#update", as: "admin_update_orders"
   
   # 管理者用画面（Order_detailsコントローラ）
-  patch "/admin/order_details/:id" => "admin/order_details#update", as: "admin_order_detsils_update"
+  patch "/admin/order_details/:id" => "admin/order_details#update", as: "admin_update_order_details"
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

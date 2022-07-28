@@ -1,0 +1,79 @@
+<p></p>
+<%= render "admin/shared/links" %>
+
+<div class ="container">
+  <div class ="col-md-3">
+    <h3 class ="bg-light">注文履歴詳細</h3>
+  </div>
+
+  <div class ="row">
+    <div class "">
+      <table class ="table table-borderless">
+        <tbody>
+          <tr>
+            <td>購入者</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>注文日</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>配送先</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>支払方法</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>注文ステータス</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class ="table table-borderless border-top border-bottom">
+        <thead class ="bg-light">
+          <tr>
+            <th>商品名</th>
+            <th>単価（税込）</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>製作ステータス</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order_details.each do |order_detail %>
+          <tr>
+            <td><%=  %></td>
+            <td><%= order_detail.price %></td>
+            <td><%= order_detail.amout %></td>
+            <td><%= order_detail.price * order_details.amount %></td>
+            <td><%= order_detail.is_active %></td>
+            <td><%= link_to '更新する', admin_orders_update_path, class:"btn btn-success" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class ="">
+      <table class ="table table-borderless">
+        <tbody>
+          <tr>
+            <th>商品合計</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>送料</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>請求金額合計</th>
+            <th></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

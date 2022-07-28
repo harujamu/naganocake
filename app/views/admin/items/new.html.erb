@@ -1,0 +1,51 @@
+<p></p>
+<%= render "admin/shared/links" %>
+
+<div class ="container">
+  <div class ="col-md-3">
+    <h3 class ="bg-light">商品新規登録</h3>
+  </div>
+  <div class ="row">
+    <div class ="mx-auto">
+    <table class ="table table-borderless">
+    <%= form_with model: @item, local: true, url:admin_add_items_path do |f| %>
+    <tbody>
+      <tr>
+        <td><%= f.label :商品画像 %></td>
+        <td><%= f.file_field:image, accept: "image/*" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :商品名 %></td>
+        <td><%= f.text_field:name, autocomplete: "name",placeholder: "商品名" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :商品説明 %></td>                                               
+        <td><%= f.text_area:introduction, autocomplete: "introduction", placeholder: "ここに説明文を記述します" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :ジャンル %></td>
+        <td><%= f.collection_select:genre_id, @genres, :id, :name, include_blank:"選択してください" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :税抜価格 %></td>
+        <td><%= f.text_field:price, autocomplete: "price", placeholder: "1000" %>円</td>
+      </tr>
+      <tr>
+        <td><%= f.label:販売ステータス %></td>
+        <td>
+          <%= f.radio_button :is_active, :true %>
+          <%= f.label :is_active, "販売中", class:"pr-3" %>
+          <%= f.radio_button :is_active, :false %>
+          <%= f.label :is_active, "販売停止中" %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2", class ="text-center"><%= f.submit '新規登録', class: "btn btn-success btn-lg" %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </div>
+  </div>
+  
+  
+</div>

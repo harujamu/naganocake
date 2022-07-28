@@ -1,7 +1,35 @@
-<%= if controller_name != 'public/sessions' %>
-  <%= link_to "Log in", new_customer_session_path %><br />
-<% end %>
+<body class ="d-flex flex-column vh-100">
+  <header>
+    
+    <nav class="navbar navbar-expand-lg">
+      <h1 class ="navbar-brand col-md-7">LOGO</h1>
+       
+      <div class ="container col-md-8">
+        <ul class ="navbar-nav justify-content-felx-end">
+          <li class ="nav-item mr-5">
+            <%= link_to about_path, class:"btn btn-outline-secondary text-dark" do %>
+            About
+            <% end %>
+          </li>
+          <li class ="nav-item mr-5">
+            <%= link_to items_path, class:"btn btn-outline-secondary text-dark" do %>
+            商品一覧
+            <% end %>
+          </li>
+          <li class ="nav-item mr-5">
+            <%= link_to new_customer_registration_path, class:"btn btn-outline-secondary text-dark" do %>
+            新規登録
+            <% end %>
+          </li>
+          <li class ="nav-item mr-5">
+            <%= link_to new_customer_session_path, class:"btn btn-outline-secondary text-dark" do %>
+            ログイン
+            <% end %>
+          </li>
+        </ul>
+      </div>
 
-<%= if devise_mapping.registerable? && controller_name != 'piblic/registrations' %>
-  <%= link_to "Sign up", new_customer_registration_path %><br />
-<% end %>
+    </nav>
+    </div>
+  </header>
+</body>

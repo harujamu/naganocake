@@ -3,14 +3,18 @@
 
 
 <div class ="container">
+  <div class ="title">
+    <h3 class="bg-light col-md-2 text-center">商品一覧</h3>
+    <h3 class=" text-right">
+      <%= link_to admin_items_new_path do %>
+      <span class ="text-body shadow-sm rounded-circle">＋</span>
+      <% end %>
+    </h3>
+  </div>
+  
   <div class ="row">
-    <div class ="">
-      <h3 class="bg-light">商品一覧</h3>
-      <i class="fal fa-plus-circle small-shadow"></i>
-    </div>
-    
-    <table class ="table table-striped">
-      <thread>
+    <table class ="table table-borderless border-top border-bottom">
+      <thead class ="bg-light">
         <tr>
           <th>商品ID</th>
           <th>商品名</th>
@@ -18,17 +22,27 @@
           <th>ジャンル</th>
           <th>ステータス</th>
         </tr>
-      </thread>
+      </thead>
       <tbody>
+        <% @items.each do |item| %>
         <tr>
-          <% @items.each do |item| %>
-          <th><%= item.id %></th>
-          <th><%= item.name %></th>
-          <th><%= item.price %></th>
-          <th><%= item.genre %></th>
-          <th><%= item.is_active %></th>
-          <% end %>
+          <td><%= item.id %></td>
+          <td>
+            <%= link_to admin_show_items_path(item.id) do %>
+            <span class ="text-body border_bottom"><%= item.name %></span>
+            <% end %>
+          </td>
+          <td><%= item.price %></td>
+          <td><%= item.genre.name %></td>
+          <td>
+            <% if item.is_active == true %>
+            <span class ="text-success">販売中</span>
+            <% else %>
+            <span class ="text-secondary">販売停止中</span>
+            <% end %>
+          </td>
         </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
