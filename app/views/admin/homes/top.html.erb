@@ -2,29 +2,35 @@
 <%= render "admin/shared/links" %>
 
 <div class ="container">
-  <div class ="col-md-3">
+  <div class ="col-md-3 mb-5">
     <h3 class ="bg-light">
       注文履歴一覧
     </h3>
   </div>
   <div class ="row">
-    <div class ="">
+    <div class ="col-11">
       <table class ="table">
         <thead class ="bg-light">
           <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
           </tr>
         </thead>
         <tbody>
+          <% @orders.each do |order| %>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+              <%= link_to admin_update_order_details_path do %>
+              <%= order.created_at.strftime('%Y/%m/%d') %>
+              <% end %>
+            </td>
+            <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
+            <td><%= order.order_details.amount %></td>
+            <td><%= order.order_status %></td>
           </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
