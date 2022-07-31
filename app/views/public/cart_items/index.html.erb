@@ -2,13 +2,17 @@
 <%= render "public/shared/links" %>
 
 <div class ="container">
-  <div class ="col-md-3">
+  <div class ="col-md-12">
     <h3 class ="bg-light">ショッピングカート</h3>
-    <%= link_to 'カートを空にする', destory_all_cart_items, class:"btn btn-danger" %>
+    <div class ="text-right">
+    <%= link_to 'カートを空にする', destroy_all_cart_items_path, class:"btn btn-danger" %>
+    </div>
   </div>
+  
   <div class ="row">
     <div class ="col-md-8">
-      <table class ="table-border">
+      <table class ="table table-bordered ">
+        <% @ones_cart_items.each do |ones_cart_item| %>
         <tr>
           <th>商品名</th>
           <th>単価（税込）</th>
@@ -17,12 +21,17 @@
           <th></th>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><%= ones_cart_item.name %></td>
+          <td><%= (ones_cart_item.price*1.1).round %></td>
+          <td>
+            <%= form_with model:ones_cart_item do |f| %>
+            <%= f.number :amount %><%= f.submit '変更する' %>
+            <% end %>
+          </td>
           <td></td>
           <td></td>
         </tr>
+        <% end %>
       </table>
     </div>
   </div>
