@@ -1,68 +1,9 @@
-<body class ="d-flex flex-column vh-100">
-  <header>
-    
-    <nav class="navbar navbar-expand-lg">
-      <div class ="navbar-brand col-md-7">
-        <h1 class="border col-md-2 border border-dark">LOGO</h1>
-      </div>
-      
-      <div class ="container col-md-8 mt-0">
-        
-      <!--ログイン前ナビバー-->  
-        <% if customer_signed_in? %>
-        <ul class ="navbar-nav justify-content-felx-end">
-          <li class ="nav-item mr-5">
-            <%= link_to about_path, class:"btn btn-outline-secondary text-dark" do %>
-            About
-            <% end %>
-          </li>
-          <li class ="nav-item mr-5">
-            <%= link_to items_path, class:"btn btn-outline-secondary text-dark" do %>
-            商品一覧
-            <% end %>
-          </li>
-          <li class ="nav-item mr-5">
-            <%= link_to new_customer_registration_path, class:"btn btn-outline-secondary text-dark" do %>
-            新規登録
-            <% end %>
-          </li>
-          <li class ="nav-item mr-5">
-            <%= link_to new_customer_session_path, class:"btn btn-outline-secondary text-dark" do %>
-            ログイン
-            <% end %>
-          </li>
-        </ul>
-        
-        <!--ログイン後ナビバー-->
-        <% else %>
-        <ul class ="navbar-nav justify-content-felx-end">
-          <li class ="nav-item mr-5">
-            <%= link_to customers_my_page_path, class:"btn btn-outline-secondary text-dark" do %>
-            マイページ
-            <% end %>
-          </li>
-          <li class ="nav-item mr-5">
-            <%= link_to items_path, class:"btn btn-outline-secondary text-dark" do %>
-            商品一覧
-            <% end %>
-          </li>
-          <li class ="nav-item mr-5">
-            <%= link_to cart_items_path, class:"btn btn-outline-secondary text-dark" do %>
-            カート
-            <% end %>
-          </li>
-          <li class ="nav-item mr-5">
-            <%= link_to destroy_customer_session_path,method: :delete, class:"btn btn-outline-secondary text-dark" do %>
-            ログアウト
-            <% end %>
-          </li>
-        </ul>
-        <% end %>
-      <!--検索フォーム追加-->
-      
-    </div>
+<%- if controller_name != 'sessions' %>
+  <%= link_to "Log in", new_session_path(resource_name) %>
 
-    </nav>
-    </div>
-  </header>
-</body>
+<% end %>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to "Sign up", new_registration_path(resource_name) %>
+
+<% end %>
