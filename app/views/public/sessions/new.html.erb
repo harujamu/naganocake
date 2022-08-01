@@ -12,7 +12,8 @@
   
   <div class ="row">
     <div class ="mx-auto col-md-6">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <!--Form_withに変更-->
+      <%= form_with model: @customer, url: customer_session_path do |f| %>
       <table class ="table table-borderless">
         <tbody>
         <tr>

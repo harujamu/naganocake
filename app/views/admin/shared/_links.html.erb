@@ -1,10 +1,14 @@
 <body class ="d-flex flex-column vh-100">
   <header>
-    
     <nav class="navbar navbar-expand-lg">
-      <h1 class ="navbar-brand col-md-7">LOGO</h1>
-       
+      <div class ="navbar-brand col-md-7">
+        <h1 class="border col-md-2 border border-dark">LOGO</h1>
+      </div>
+      
       <div class ="container col-md-8">
+        
+    <!--ログイン前ナビバー-->  
+        <% if admin_signed_in? %>
         <ul class ="navbar-nav justify-content-felx-end">
           <li class ="nav-item mr-5">
             <%= link_to about_path, class:"btn btn-outline-secondary text-dark" do %>
@@ -27,9 +31,39 @@
             <% end %>
           </li>
         </ul>
-      </div>
+        
+    <!--ログイン後ナビバー-->
+        <% else %>
+        <ul class ="navbar-nav justify-content-felx-end">
+          <li class ="nav-item mr-5">
+            <%= link_to admin_items_path, class:"btn btn-outline-secondary text-dark" do %>
+            商品一覧
+            <% end %>
+          </li>
+          <li class ="nav-item mr-5">
+            <%= link_to admin_customers_path, class:"btn btn-outline-secondary text-dark" do %>
+            会員一覧
+            <% end %>
+          </li>
+          <li class ="nav-item mr-5">
+            <%= link_to admin_path, class:"btn btn-outline-secondary text-dark" do %>
+            注文履歴一覧
+            <% end %>
+          </li>
+          <li class ="nav-item mr-5">
+            <%= link_to admin_genres_path, class:"btn btn-outline-secondary text-dark" do %>
+            ジャンル一覧
+            <% end %>
+          </li>
+          <li class ="nav-item mr-5">
+            <%= link_to destroy_admin_session_path,method: :delete, class:"btn btn-outline-secondary text-dark" do %>
+            ログアウト
+            <% end %>
+          </li>
+        </ul>
+        <% end %>
 
-    </nav>
-    </div>
+      </div>
+      </nav>
   </header>
 </body>
