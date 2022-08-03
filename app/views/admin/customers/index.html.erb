@@ -1,5 +1,4 @@
 <p></p>
-<%= render "admin/shared/links" %>
 
 <div class ="container">
   <div class ="col-md-2">
@@ -22,11 +21,11 @@
           <td><%= customer.id %></td>
           <td>
             <%= link_to admin_show_customers_path(customer) do %>
-              <%= customer.last_name %><%= customer.first_name %>
+              <span class ="text-dark border-bottom border-dark"><%= customer.last_name %><%= customer.first_name %></span>
             <% end %>
           </td>
           <td><%= customer.email %></td>
-          <td><%= customer.is_active %></td>
+          <td><%= customer.is_deleted %></td>
         </tr>
       </tbody>
       <% end %>
@@ -34,4 +33,5 @@
       
     </div>
   </div>
+  <div class=" col-md-12 d-flex justify-content-center"><%= paginate @customers %></div>
 </div>

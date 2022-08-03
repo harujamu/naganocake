@@ -14,28 +14,28 @@
         <tr>
           <td>名前</td>
           <td>（姓）</td>
-          <td><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "令和" %></td>
+          <td><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "令和", size:"30" %></td>
           <td>（名）</td>
-          <td><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "道子" %></td>
+          <td><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "道子", size:"30" %></td>
         </tr>
         <tr>
           <td>フリガナ</td>
           <td>（セイ）</td>
-          <td><%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", placeholder: "レイワ" %></td>
+          <td><%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", placeholder: "レイワ", size:"30" %></td>
           <td>（メイ）</td>
-          <td><%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: "ミチコ" %></td>
+          <td><%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: "ミチコ", size:"30" %></td>
         </tr>
         <tr>
           <td>メールアドレス</td>
           <td></td>
-          <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com" %></td>
+          <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com", size:"30" %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td>郵便番号（ハイフンなし）</td>
           <td></td>
-          <td><%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", placeholder: "0000000" %></td>
+          <td><%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", placeholder: "0000000", size:"30" %></td>
           <td></td>
           <td></td>
         </tr>
@@ -47,7 +47,7 @@
         <tr>
           <td>電話番号（ハイフンなし）</td>
           <td></td>
-          <td><%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number", placeholder: "0000000" %></td>
+          <td><%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number", placeholder: "0000000", size:"30" %></td>
           <td></td>
           <td></td>
         </tr>
@@ -55,7 +55,7 @@
           <td>パスワード（6文字以上）</td>
           <td></td>
           <td>
-            <%= f.password_field :password, autocomplete: "new-password" %>
+            <%= f.password_field :password, autocomplete: "new-password", size:"30" %>
           </td>
           <td></td>
           <td></td>
@@ -63,14 +63,14 @@
         <tr>
           <td>パスワード（確認用）</td>
           <td></td>
-          <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+          <td><%= f.password_field :password_confirmation, autocomplete: "new-password", size:"30" %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <td></td>
           <td></td>
-          <td><%= f.submit "新規登録", class:"btn btn-success btn-lg" %></td>
+          <td><%= f.submit "新規登録", class:"btn btn-success w-75" %></td>
           <td></td>
           <td></td>
         </tr>
