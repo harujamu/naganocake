@@ -11,6 +11,7 @@ class Item < ApplicationRecord
     image.variant(resize_to_limit:[width,height]).processed
   end
   
+  
   belongs_to :genre
   has_many :cart_items, dependent: :destroy
   has_many :order_details

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-  
+
 
 <!--linkをpackに変更（Bootstrap導入）-->
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -14,14 +14,14 @@
 
   <body class ="d-flex flex-column vh-100">
   <header>
-    
+
     <nav class="navbar navbar-expand-lg">
       <div class ="navbar-brand col-md-7">
         <h1 class="border col-md-2 border border-dark">LOGO</h1>
       </div>
-      
+
       <div class ="container col-md-8 mt-0">
-      <!--ログイン後ナビバー(Admin)-->  
+      <!--ログイン後ナビバー(Admin)-->
         <% if admin_signed_in? %>
         <ul class ="navbar-nav justify-content-felx-end">
           <li class ="nav-item mr-5">
@@ -50,9 +50,10 @@
             <% end %>
           </li>
         </ul>
-        
+
         <!--ログイン後ナビバー（Customer）-->
         <% elsif customer_signed_in? %>
+        <p class="mr-5">ようこそ、<%= current_customer.last_name %>さん！</p>
         <ul class ="navbar-nav justify-content-felx-end">
           <li class ="nav-item mr-5">
             <%= link_to customers_my_page_path, class:"btn btn-outline-secondary text-dark" do %>
@@ -75,7 +76,7 @@
             <% end %>
           </li>
         </ul>
-    
+
         <!--ログイン前ナビバー-->
         <% else %>
         <ul class ="navbar-nav justify-content-felx-end">
@@ -101,7 +102,7 @@
           </li>
         </ul>
         <% end %>
-      
+
     </div>
 
     </nav>

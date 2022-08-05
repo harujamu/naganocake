@@ -2,7 +2,7 @@ class Public::CartItemsController < ApplicationController
   
   def index
     @customer = Customer.find(params[:customer_id])
-    @cart_item = Cart_item.find(params[:id])
+    @cart_item = CartItem.find(params[:id])
     items = @cart_item.items
     @ones_cart_items = @customer.items
   end
@@ -18,5 +18,12 @@ class Public::CartItemsController < ApplicationController
   
   def create
   end
+
+private
+
+def cart_item_params
+  params.require(:cart_item).permit(:amount)
+end
+  
 
 end

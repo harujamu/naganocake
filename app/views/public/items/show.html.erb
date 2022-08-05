@@ -2,26 +2,30 @@
 
 
 <div class ="container">
-  <div class ="">
-    <div class ="col-md-4">
-    <table class ="table-sm table-borderless border border-dark">
-      <tr><th class ="border-bottom border-dark">ジャンル検索</th></tr>
-      <% @genres.each do |genre| %>
-      <tr><td><%= genre.name %></td></tr>
-      <% end %>
-    </table>
-    </div>
-  </div>
-    
+  <div class ="row mt-5">
+      <div class ="col-md-3">
+          <table class ="table-sm table-borderless border border-dark">
+            <tr><th class ="border-bottom border-dark px-5">ジャンル検索</th></tr>
+            <% @genres.each do |genre| %>
+            <tr><td><%= genre.name %></td></tr>
+            <% end %>
+          </table>
+      </div>
+
   <div class ="row">
-    <div class ="">
-      <%= %>
+    <div class ="mr-5">
+      <%= image_tag @item.image,size:"300x200" %>
     </div>
     <div class ="">
-      <h3><%= @item.name %></h3>
-      <p><%= @item.introduction %></p>
-      <p>¥ <%= @item.price %>(税込)</p>
-      <p></p>
+      <h3 class ="font-weight-bold"><%= @item.name %></h3>
+      <p class ="font-weight-bold"><%= @item.introduction %></p>
+      <h4 class ="font-weight-bold">¥ <%= @item.price %><small>(税込)</small></h4>
+      <p>
+        <% form_with model:@cart_item, url:"cart_items_path" |f| do %>
+        <%=f.number :amount, placeholder:"個数選択", class:"mr-5" %>
+        <%= link_to 'カートに入れる', cart_items_path, class:"btn btn-success" %>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>
