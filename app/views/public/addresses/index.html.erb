@@ -11,21 +11,24 @@
         <% form_with model: @ones_addresses do |f| %>
         <tr>
           <th>郵便番号（ハイフンなし）</th>
-          <td><%= f.test_field:postal_code, placeholder:"0000000" %></td>
+          <td><%= f.text_field:postal_code, placeholder:"0000000" %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <th>住所</th>
-          <td><%= f.test_field:address,placeholder:"東京都渋谷区代々木神園0-0" %></td>
+          <td><%= f.text_field:address,placeholder:"東京都渋谷区代々木神園0-0" %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <th>宛名</th>
-          <td><%= f..name:name, placeholder:"令和道子" %></td>
+          <td><%= f.text_field:name, placeholder:"令和道子" %></td>
           <td></td>
-          <td><%= link_to</td>
+          <td>
+            <%= link_to'新規登録',add_addresses_path,class:"btn btn-success mr-5" %>
+            <%= link_to '削除する',destroy_addresses_path(@address), metod: :delete,　class: "btn btn-danger" %>
+          </td>
         </tr>
         <% end %>
       </table>

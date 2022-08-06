@@ -1,8 +1,7 @@
 class Public:: AddressesController < ApplicationController
   
   def index
-    addresses = Address.all
-    @ones_addresses = @customer.addresses
+   
   end
 
   def edit
@@ -16,6 +15,7 @@ class Public:: AddressesController < ApplicationController
   end
   
   def destroy
+    @address = Address.find(params[:id])
   end
   
   private
