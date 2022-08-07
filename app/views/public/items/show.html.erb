@@ -19,12 +19,11 @@
     <div class ="">
       <h3 class ="font-weight-bold"><%= @item.name %></h3>
       <p class ="font-weight-bold"><%= @item.introduction %></p>
-      <h4 class ="font-weight-bold">¥ <%= @item.price %><small>(税込)</small></h4>
+      <h4 class ="font-weight-bold mt-5">¥ <%= @item.price %><small>(税込)</small></h4>
       <p>
-        <% form_with model:@cart_item, url:"cart_items_path" |f| do %>
-        <%=f.number :amount, placeholder:"個数選択", class:"mr-5" %>
-        <%= link_to 'カートに入れる', cart_items_path, class:"btn btn-success" %>
-        <% end %>
+        
+        <%= link_to 'カートに入れる', cart_items_path, class:"btn btn-success mt-4" %>
+        
       </p>
     </div>
   </div>

@@ -5,22 +5,22 @@
   <div class ="col-md-3 mb-5">
     <h3 class ="bg-light">商品詳細</h3>
   </div>
-  
+
   <div class ="row">
-    <div class ="col-md-4">
-      <%= image_tag @item.get_image(300,300) %>
+    <div class ="col-md-3 mr-0">
+      <%= image_tag @item.image, size:"240x170" %>
     </div>
-    <div class ="col-md-5">
+    <div class ="col-md-5 ml-0">
       <table class ="table table-borderless">
         <tbody>
-        
+
           <tr>
             <td>商品名</td>
             <td><%= @item.name %></td>
           </tr>
           <tr>
             <td>商品説明</td>
-            
+
             <td><%= @item.introduction %></td>
           </tr>
           <tr>
@@ -47,6 +47,6 @@
           </tr>
         </tbody>
       </table>
-    </div> 
+    </div>
   </div>
 </div>

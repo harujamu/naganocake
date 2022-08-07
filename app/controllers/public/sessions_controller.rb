@@ -33,7 +33,7 @@ class Public::SessionsController < Devise::SessionsController
     # 処理１終了
     return if !@customer
     # 処理２
-    if @customer.valid_password?(params[:customer][:password]) && @customeris_deleted == true
+    if @customer.valid_password?(params[:customer][:password]) && @customer.is_deleted == true
       # 処理３
       
       redirect_to new_customer_registration_path and return
