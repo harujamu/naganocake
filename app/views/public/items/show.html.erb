@@ -14,17 +14,21 @@
 
   <div class ="row">
     <div class ="mr-5">
-      <%= image_tag @item.image,size:"300x200" %>
+      <%= image_tag @item.get_image(300,200) %>
     </div>
     <div class ="">
       <h3 class ="font-weight-bold"><%= @item.name %></h3>
       <p class ="font-weight-bold"><%= @item.introduction %></p>
       <h4 class ="font-weight-bold mt-5">¥ <%= @item.price %><small>(税込)</small></h4>
+
       <p>
-        
-        <%= link_to 'カートに入れる', cart_items_path, class:"btn btn-success mt-4" %>
-        
+        <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+        <%= f.select :amount, *[1..10] %>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+        <%= f.submit 'カートに入れる', class:"btn btn-success mt-1 ml-5" %>
+        <% end %>
       </p>
+
     </div>
   </div>
 </div>

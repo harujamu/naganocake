@@ -11,6 +11,9 @@ class Item < ApplicationRecord
     image.variant(resize_to_limit:[width,height]).processed
   end
   
+  def with_tax_price
+    (price*1.1).round
+  end
   
   belongs_to :genre
   has_many :cart_items, dependent: :destroy

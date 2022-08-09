@@ -5,10 +5,10 @@
   <div class ="col-md-3 ml-5">
     <h4 class="bg-light">マイページ</h4>
   </div>
-  <div class ="row">
+  <div class ="row mt-5">
     <div class ="col-md-8">
       <h5 class ="font-weight-bold"3>登録情報<%= link_to '編集する',customers_information_edit_path, class:"btn btn-success ml-4" %></h5>
-      <table class ="table table-bordered border-dark mt-4">
+      <table class="table table-bordered mt-4">
       <tr>
         <td class ="table-active">氏名</td>
         <td><%= @customer.last_name %> <%= @customer.first_name %></td>

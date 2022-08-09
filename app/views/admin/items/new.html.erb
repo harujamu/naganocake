@@ -20,15 +20,15 @@
       </tr>
       <tr>
         <td><%= f.label :商品説明 %></td>                                               
-        <td><%= f.text_area:introduction, autocomplete: "introduction", placeholder: "ここに説明文を記述します", size:"32" %></td>
+        <td><%= f.text_area:introduction, autocomplete: "introduction", placeholder: "ここに説明文を記述します", size:"32x6" %></td>
       </tr>
       <tr>
         <td><%= f.label :ジャンル %></td>
-        <td><%= f.collection_select:genre_id, @genres, :id, :name, include_blank:"選択してください" %></td>
+        <td><%= f.collection_select:genre_id, @genres, :id, :name, {include_blank:"選択してください"} %></td>
       </tr>
       <tr>
         <td><%= f.label :税抜価格 %></td>
-        <td><%= f.text_field:price, autocomplete: "price", placeholder: "1000", size:"32" %>円</td>
+        <td><%= f.text_field:price, autocomplete: "price", placeholder: "1000", size:"33" %>円</td>
       </tr>
       <tr>
         <td><%= f.label:販売ステータス %></td>

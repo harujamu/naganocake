@@ -1,29 +1,44 @@
 class Public::CartItemsController < ApplicationController
-  
+
+
   def index
-    @customer = Customer.find(params[:customer_id])
+    @cart_items = CartItem.all
+    @total = 0
+  end
+  
+  def update
     @cart_item = CartItem.find(params[:id])
-    items = @cart_item.items
-    @ones_cart_items = @customer.items
+    @cart_item.update(cart_item_params)
+    redirect_to cart_items_path
   end
 
-  def update
-  end
-  
   def destroy
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.destroy
+    redirect_to cart_items_path
   end
 
   def destroy_all
+    current_customer.cart_items.destroy_all
+    redirect_to cart_items_path
   end
-  
+
   def create
+    @cart_item = CartItem.new(cart_item_params)
+    @cart_item.customer_id = current_customer.id
+    @cart_item.save
+    redirect_to cart_items_path
+
   end
 
 private
 
 def cart_item_params
-  params.require(:cart_item).permit(:amount)
+  params.require(:cart_item).permit(:amount, :item_id)
 end
-  
+
+def item_params
+    params.require(:item).permit(:name,:introduction,:price,:is_active, :genre_id, :image)
+end
 
 end
