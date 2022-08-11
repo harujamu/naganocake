@@ -6,8 +6,9 @@
   </div>
   <div class ="row">
     <div class ="col-md-8">
+      <%= form_with model: @customer, url:end_users_information_path(@customer) do |f| %>
       <table class ="table table-borderless">
-      <%= form_with model: @customer, url: customers_information_edit_path(@customer) do |f| %>
+        <tbody>
         <tr>
           <td>氏名</td>
           <td><%= f.text_field :last_name, size:"20", class:"mr-5" %><%= f.text_field :first_name, size:"20" %></td>
@@ -36,11 +37,13 @@
           <td></td>
           <td>
             <%= f.submit '編集内容を保存', class:"btn btn-success w-50 mr-5" %>
-             <%= link_to '退会する', update_unsubscribe_path(@customer,customer: {is_deleted: true}), method: :patch, class:"btn btn-danger ml-5" %>
-            </td>
+            <%= link_to '退会する', customers_unsubscribe_path(@customer), class:"btn btn-danger ml-5" %>
+          </td>
         </tr>
-      <% end %>
+        </tbody>
+        
       </table>
+      <% end %>
     </div>
   </div>
 </div>

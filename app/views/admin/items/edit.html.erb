@@ -10,7 +10,7 @@
   <div class ="row">
     <div class ="mx-auto">
     <table class ="table table-borderless">
-    <%= form_with model: @item, url:admin_update_items_path do |f| %>
+    <%= form_with model: @item, url:admin_update_items_path(@item) do |f| %>
     <tbody>
       <tr>
         <td><%= f.label :商品画像 %></td>

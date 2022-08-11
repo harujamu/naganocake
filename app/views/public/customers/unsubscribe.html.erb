@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class ="text-center mt-5">
-    <%= link_to '退会しない', customers_information_edit_path, class:"btn btn-primary" %>
+    <%= link_to '退会しない', customers_my_page_path(@customer), class:"btn btn-primary" %>
     <%= link_to '退会する', update_unsubscribe_path(@customer,customer: {is_deleted: true}), method: :patch, class:"btn btn-danger ml-3" %>
   </div>
   
