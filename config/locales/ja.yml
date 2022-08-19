@@ -5,10 +5,16 @@ ja:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
 
-ja:
-  enums:
-    address:
-      address:
-        own_address: "ご自身の住所"
-        added_address: "登録済みの住所"
-        new_address: "新しい住所"
+      order_status:
+        waiting_for_payment: "入金待ち"
+        payment_confirmation: "入金確認"
+        production: "製作中"
+        shipping_preparation: "発送準備中"
+        shipped: "発送済"
+        
+    order_detail:
+      production_status:
+        cannot_start: "着手不可"
+        waiting_for_production: "製作待ち"
+        production: "製作中"
+        production_completed: "製作完了"

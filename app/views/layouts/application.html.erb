@@ -17,9 +17,11 @@
 
     <nav class="navbar navbar-expand-lg">
       <div class ="navbar-brand col-md-7">
-        <h1 class="border col-md-2 border border-dark">LOGO</h1>
+        <%= link_to root_path do %>
+        <h1 class="border col-md-2 border border-dark text-dark">LOGO</h1>
+        <% end %>
       </div>
-
+      
       <div class ="container col-md-8 mt-0">
       <!--ログイン後ナビバー(Admin)-->
         <% if admin_signed_in? %>
@@ -102,11 +104,18 @@
           </li>
         </ul>
         <% end %>
-
     </div>
-
     </nav>
     </div>
+
+    <div class="row d-flex flex-row-reverse">
+    <div class="col-md-3">
+     <p class="border border-secondary p-1">Search
+     <i class="fa-thin fa-magnifying-glass"></i>
+     </p>
+    </div>
+    </div>
+
   </header>
 
     <%= yield %>

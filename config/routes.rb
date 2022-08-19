@@ -75,6 +75,8 @@ Rails.application.routes.draw do
   # 管理者用画面（Ordersコントローラ）
   get "/admin/orders/:id" => "admin/orders#show", as: "admin_show_orders"
   patch "/admin/orders/:id" => "admin/orders#update", as: "admin_update_orders"
+  # 顧客別注文一覧
+  get "/admin/by_customer_orders" => "admin/orders#index", as: "admin_by_customer_orders"
   
   # 管理者用画面（Order_detailsコントローラ）
   patch "/admin/order_details/:id" => "admin/order_details#update", as: "admin_update_order_details"
