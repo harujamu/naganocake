@@ -37,11 +37,13 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.save
-
+    
     @order_detail = OrderDetail.new
-    @order_detail.production_status = 0
+    @order_detail.order_id = @order.id
+    @order_detail.production_status = OrderDetail.production_statuses.key(0)
     
     @order_detail.save
+   
     redirect_to orders_complete_path
   end
 
