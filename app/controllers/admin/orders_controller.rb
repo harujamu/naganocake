@@ -4,6 +4,8 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @customer = current_customer
     @order_details = OrderDetail.all
+    @total = 0
+    @total_amount = 0
   end
 
   def update
@@ -13,8 +15,11 @@ class Admin::OrdersController < ApplicationController
   end
 
   def index
-    @customer = Cusromer.find(params[:id])
-
+    @customer = Customer.find(params[:id])
+    @orders = @customer.orders.page(params[:page])
+    # @cart_items = @customer.cart_items
+    @total_amount = 0
+    @order_details = OrderDetail.all
   end
 
 private

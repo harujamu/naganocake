@@ -5,7 +5,7 @@
   <div class ="row mt-5">
     <%= render 'list', genres: @genres %>
     <div class ="col-md-9">
-      <h3 class ="font-weight-bold">商品一覧<span class="font-weight-normal">全()件</span></h3>
+      <h3 class ="font-weight-bold">商品一覧<span class="font-weight-normal">全(<%= @items.count %>)件</span></h3>
 
 
         <div class ="mt-3 d-flex flex-wrap">

@@ -40,15 +40,16 @@ class Public::OrdersController < ApplicationController
 
     # each文の始まり
     current_customer.cart_items.each do |cart_item|
-    @order_detail = OrderDetail.new
-    @order_detail.order_id = @order.id
-    # @order_detail.production_status = OrderDetail.production_statuses.key(0)
-    @order_detail.amount = cart_item.amount
-    @order_detail.tax_included_price = cart_item.item.price * 1.1
-    @order_detail.item_id = cart_item.item_id
-    byebug
-    @order_detail.save!
+      @order_detail = OrderDetail.new
+      @order_detail.order_id = @order.id
+      # @order_detail.production_status = OrderDetail.production_statuses.key(0)
+      @order_detail.amount = cart_item.amount
+      @order_detail.tax_included_price = cart_item.item.price * 1.1
+      @order_detail.item_id = cart_item.item_id
+      
+      @order_detail.save!
     end
+    
     current_customer.cart_items.destroy_all
     redirect_to orders_complete_path
   end
@@ -56,13 +57,16 @@ class Public::OrdersController < ApplicationController
   def index
     @total = 0
     @orders = Order.all
-    @cart_items = CartItem.all
+    # @cart_items = CartItem.all
+    @order_details = OrderDetail.all
   end
 
   def show
     @total = 0
     @order = Order.find(params[:id])
-    @cart_items = CartItem.all
+    # @cart_items = CartItem.all
+    @order_details = OrderDetail.all
+    @total_amount = 0
   end
 
   private

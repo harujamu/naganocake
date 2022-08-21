@@ -4,7 +4,7 @@ class Admin::HomesController < ApplicationController
     @orders = Order.page(params[:page])
     @cart_items = CartItem.all
     @total_amount = 0
-   
+    @order_details = OrderDetail.all
   end
 
 private
