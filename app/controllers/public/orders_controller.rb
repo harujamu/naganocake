@@ -35,7 +35,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    @order = current_customer.orders.build(order_params)
+    # @order = current_customer.orders.build(order_params)
+    @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
     @order.save
 
     # each文の始まり
@@ -47,7 +49,7 @@ class Public::OrdersController < ApplicationController
       @order_detail.tax_included_price = cart_item.item.price * 1.1
       @order_detail.item_id = cart_item.item_id
       
-      @order_detail.save!
+      @order_detail.save
     end
     
     current_customer.cart_items.destroy_all

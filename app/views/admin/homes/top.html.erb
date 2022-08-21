@@ -26,11 +26,11 @@
               <% end %>
             </td>
             <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
-            <% @order_details.each do |order_detail| %>
-            <% @total_amount += order_detail.amount %>
-            <% end %>
-
-            <td><%= @total_amount %></td>
+            <%# order.order_details.each do |order_detail| %>
+            <%# @total_amount += order_detail.amount %>
+            <%# end %>
+            
+            <td><%= order.order_details.sum(:amount) %></td>
             <td><%= order.order_status_i18n %></td>
           </tr>
           <% end %>
@@ -38,5 +38,5 @@
       </table>
     </div>
   </div>
-  <div class= "col-md-12 d-flex justify-content-center"><%= paginate @orders %></div>
+  <!--<div class= "col-md-12 d-flex justify-content-center"><%#= paginate @orders %></div>-->
 </div>

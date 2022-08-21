@@ -2,7 +2,7 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @customer = current_customer
+    # @customer = @order.customer
     @order_details = OrderDetail.all
     @total = 0
     @total_amount = 0

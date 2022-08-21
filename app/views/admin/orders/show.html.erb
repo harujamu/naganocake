@@ -13,8 +13,8 @@
         <tr>
           <th>購入者</th>
           <td>
-            <%= link_to admin_by_customer_orders_path(@customer) do %>
-            <span class ="text-body"><%= @customer.last_name %><%= @customer.first_name %></span>
+            <%= link_to admin_by_customer_orders_path(@order.customer.id) do %>
+            <span class ="text-body"><%= @order.customer.last_name %><%= @order.customer.first_name %></span>
             <% end %>
           </td>
         </tr>
@@ -61,7 +61,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @order_details.each do |order_detail| %>
+          <% @order.order_details.each do |order_detail| %>
           <tr>
             <td><%= order_detail.item.name %></td>
             <td><%= order_detail.tax_included_price %></td>
@@ -80,7 +80,7 @@
         </tbody>
     </table>
   </div>
-  
+
     <div class ="col-md-3 mt-5">
     <table class ="table table-borderless">
       <tbody>
@@ -99,7 +99,7 @@
       </tbody>
     </table>
   </div>
-  </div> 
+  </div>
 
-  
+
 </div>
