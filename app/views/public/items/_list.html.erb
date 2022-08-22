@@ -4,9 +4,7 @@
       <% genres.each do |genre| %>
       <tr>
         <td>
-        <%= link_to by_genre_items_path do %>
-          <span class="text-dark"><%= genre.name %></span>
-        <% end %>
+        <%= link_to genre.name, items_path(genre_search: genre.id), method: :get, class:"text-dark" %>
         </td>
       </tr>
       <% end %>
