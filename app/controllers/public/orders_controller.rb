@@ -7,9 +7,9 @@ class Public::OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
     @cart_items = CartItem.all
-    @total = 0
+    # @total = 0
     @order.postage = 800
-    @order.billing_amount = @total + @order.postage
+    @order.billing_amount = @total.to_i + @order.postage
     @address = Address.find(params[:order][:address_id])
 
     if params[:order][:select_address] == "0"
@@ -48,27 +48,26 @@ class Public::OrdersController < ApplicationController
       @order_detail.amount = cart_item.amount
       @order_detail.tax_included_price = cart_item.item.price * 1.1
       @order_detail.item_id = cart_item.item_id
-      
+
       @order_detail.save
     end
-    
+
     current_customer.cart_items.destroy_all
     redirect_to orders_complete_path
   end
 
   def index
-    @total = 0
+
     @orders = Order.all
     # @cart_items = CartItem.all
-    @order_details = OrderDetail.all
+
   end
 
   def show
-    @total = 0
     @order = Order.find(params[:id])
+    # @order.billing_amount = @order.postage + @total
     # @cart_items = CartItem.all
-    @order_details = OrderDetail.all
-    @total_amount = 0
+    # @order_details = OrderDetail.all
   end
 
   private

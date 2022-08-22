@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   # 顧客用画面（Itemsコントローラ）
   get "/items" => "public/items#index"
   get "/items/:id" => "public/items#show", as: "show_items"
+  # 顧客用画面（ジャンル検索）
+  get "/genre" => "public/items#genre", as: "by_genre_items"
 
   # 顧客用画面（Customersコントローラ)
   get "/customers/my_page" => "public/customers#show"
