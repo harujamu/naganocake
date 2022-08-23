@@ -2,10 +2,15 @@ class Admin::HomesController < ApplicationController
 
   def top
     # @orders = Order.page(params[:page])
-    @orders = Order.all
-    @cart_items = CartItem.all
-    @total_amount = 0
     # @order_details = OrderDetail.all
+    # @cart_items = CartItem.all
+    if params[:by_customer_orders]
+      @orders = Order.where(name: params[:by_customer_orders])
+    else
+      @orders = Order.all
+    end
+    @total_amount = 0
+    
   end
 
 private

@@ -13,9 +13,7 @@
         <tr>
           <th>購入者</th>
           <td>
-            <%= link_to admin_by_customer_orders_path(@order.customer.id) do %>
-            <span class ="text-body"><%= @order.customer.last_name %><%= @order.customer.first_name %></span>
-            <% end %>
+            <span class ="text-dark"><%= link_to @name, admin_path(by_customer_orders: @name), method: :get %></span>
           </td>
         </tr>
         <tr>
@@ -69,7 +67,6 @@
             <% @total_amount += order_detail.amount %>
             <td><%= order_detail.tax_included_price * order_detail.amount %></td>
             <% @total += order_detail.tax_included_price * order_detail.amount %>
-            <td><%= order_detail.production_status %></td>
             <td>
             <%= form_with model: order_detail, url: admin_update_order_details_path(order_detail) do |f| %>
             <%= f.select :production_status, OrderDetail.production_statuses_i18n.keys.map{|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]} %><%= f.submit'更新', class:"btn btn-success btn-sm ml-4" %>

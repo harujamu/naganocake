@@ -6,11 +6,13 @@ class Admin::OrdersController < ApplicationController
     @order_details = OrderDetail.all
     @total = 0
     @total_amount = 0
+    @name = @order.customer.last_name + @order.customer.first_name
   end
 
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
+    
     redirect_to admin_show_orders_path
   end
 

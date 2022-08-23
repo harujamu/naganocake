@@ -21,8 +21,9 @@
         <h1 class="border col-md-2 border border-dark text-dark">LOGO</h1>
         <% end %>
       </div>
-      
-      <div class ="container col-md-8 mt-0">
+
+      <div class ="container col-md-8 mt-0 flex-column">
+      <div class="row">
       <!--ログイン後ナビバー(Admin)-->
         <% if admin_signed_in? %>
         <ul class ="navbar-nav justify-content-felx-end">
@@ -104,18 +105,18 @@
           </li>
         </ul>
         <% end %>
-    </div>
+        </div>
+
+        <div class="row mt-3 ml-5 pl-5">
+          <%=form_with url:items_path , method: :get do |f| %>
+            <%= f.text_field :item_search, placeholder:"Search" %>
+            <%#= f.submit 'Search' %>
+            <button type="submit", type="&#xf002;"></button>
+          <% end %>
+        </div>
+
+      </div>
     </nav>
-    </div>
-
-    <div class="row d-flex flex-row-reverse">
-    <div class="col-md-3">
-     <p class="border border-secondary p-1">Search
-     <i class="fa-thin fa-magnifying-glass"></i>
-     </p>
-    </div>
-    </div>
-
   </header>
 
     <%= yield %>

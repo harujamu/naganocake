@@ -6,6 +6,11 @@ class Public::ItemsController < ApplicationController
       @genres = Genre.all
       items = Item.where(genre_id: params[:genre_search])
       @items = items.page(params[:page])
+      
+    elsif params[:item_search]
+      @genres = Genre.all
+      items = Item.where(name: params[:item_search]) 
+      @items = items.page(params[:page])
     else
       @genres = Genre.all
       @items = Item.page(params[:page])
