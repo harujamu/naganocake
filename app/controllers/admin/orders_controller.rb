@@ -3,7 +3,7 @@ class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     # @customer = @order.customer
-    @order_details = OrderDetail.all
+    # @order_details = OrderDetail.all
     @total = 0
     @total_amount = 0
     @name = @order.customer.last_name + @order.customer.first_name
@@ -12,7 +12,13 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
+    @order_details = @order.order_details
     
+    @order_details.each do |order_detail|
+      if @order.order_status == "payment_confirmation"
+        order_detail.update(production_status:"waiting_for_production")
+      end
+    end
     redirect_to admin_show_orders_path
   end
 

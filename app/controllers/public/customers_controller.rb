@@ -21,10 +21,13 @@ class Public::CustomersController < ApplicationController
   def update_unsubscribe
     @customer = current_customer
     @customer.update(customer_params)
-    if params[:is_deleted] == true
+    reset_session
+    # if @customer.is_deleted == true
+      # ログアウト？
       
-    redirect_to root_path
-    end
+      redirect_to root_path
+    # end
+    
   end
   
   private
