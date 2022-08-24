@@ -1,8 +1,14 @@
 class Admin::ItemsController < ApplicationController
 
   def index
-    @items = Item.page(params[:page])
-    @genres = Genre.all
+    if params[:admin_item_search]
+      @genres = Genre.all
+      items = Item.where(name: params[:admin_item_search])
+      @items = items.page(params[:page])
+    else
+      @items = Item.page(params[:page])
+      @genres = Genre.all
+    end
   end
 
   def new

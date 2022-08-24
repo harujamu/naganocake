@@ -22,12 +22,7 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     @customer.update(customer_params)
     reset_session
-    # if @customer.is_deleted == true
-      # ログアウト？
-      
-      redirect_to root_path
-    # end
-    
+    redirect_to root_path
   end
   
   private
