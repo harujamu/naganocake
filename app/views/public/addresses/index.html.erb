@@ -38,14 +38,14 @@
           <th>宛名</th>
           <td></td>
         </tr>
+        <% @addresses.each do |address| %>
         <tr>
-          <% @addresses.each do |address| %>
           <td><%= address.postal_code %></td>
           <td><%= address.address %></td>
           <td><%= address.name %></td>
           <td><%= link_to '編集する', edit_addresses_path(address.id), class:"btn btn-success" %><%= link_to '削除する', destroy_addresses_path(address.id), method: :delete, class:"btn btn-danger ml-2" %></td>
-          <% end %>
         </tr>
+        <% end %>
       </table>
     </div>
   </div>

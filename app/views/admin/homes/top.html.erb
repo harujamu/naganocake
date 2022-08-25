@@ -33,7 +33,7 @@
             <%# order.order_details.each do |order_detail| %>
             <%# @total_amount += order_detail.amount %>
             <%# end %>
-            
+
             <td><%= order.order_details.sum(:amount) %></td>
             <td><%= order.order_status_i18n %></td>
           </tr>
